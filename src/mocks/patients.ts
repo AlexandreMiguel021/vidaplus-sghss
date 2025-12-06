@@ -1,0 +1,43 @@
+import type { Patient } from "@/types";
+
+export const mockPatients: Patient[] = [
+  {
+    id: "1",
+    name: "Maria Silva",
+    email: "maria.silva@email.com",
+    role: "patient",
+    cpf: "123.456.789-00",
+    dateOfBirth: "1985-05-15",
+    phone: "(11) 98765-4321",
+    address: "Rua das Flores, 123 - São Paulo, SP",
+    avatar: "https://i.pravatar.cc/150?img=1",
+    medicalHistory: ["Hipertensão", "Diabetes tipo 2"],
+    createdAt: "2024-01-15",
+  },
+  {
+    id: "2",
+    name: "João Santos",
+    email: "joao.santos@email.com",
+    role: "patient",
+    cpf: "987.654.321-00",
+    dateOfBirth: "1990-08-22",
+    phone: "(11) 91234-5678",
+    address: "Av. Paulista, 1000 - São Paulo, SP",
+    avatar: "https://i.pravatar.cc/150?img=12",
+    medicalHistory: [],
+    createdAt: "2024-02-10",
+  },
+  {
+    id: "3",
+    name: "Ana Costa",
+    email: "ana.costa@email.com",
+    role: "patient",
+    cpf: "456.789.123-00",
+    dateOfBirth: "1978-12-10",
+    phone: "(11) 97777-8888",
+    address: "Rua Augusta, 500 - São Paulo, SP",
+    avatar: "https://i.pravatar.cc/150?img=5",
+    medicalHistory: ["Asma"],
+    createdAt: "2024-03-05",
+  },
+];

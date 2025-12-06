@@ -1,0 +1,42 @@
+import type { Professional } from "@/types";
+
+export const mockProfessionals: Professional[] = [
+  {
+    id: "prof-1",
+    name: "Dr. Carlos Mendes",
+    email: "carlos.mendes@vidaplus.com",
+    role: "professional",
+    cpf: "111.222.333-44",
+    phone: "(11) 99999-1111",
+    specialty: "Cardiologia",
+    license: "CRM 12345-SP",
+    avatar: "https://i.pravatar.cc/150?img=33",
+    availability: ["Segunda", "Quarta", "Sexta"],
+    createdAt: "2023-06-10",
+  },
+  {
+    id: "prof-2",
+    name: "Dra. Beatriz Lima",
+    email: "beatriz.lima@vidaplus.com",
+    role: "professional",
+    cpf: "222.333.444-55",
+    phone: "(11) 99999-2222",
+    specialty: "Pediatria",
+    license: "CRM 67890-SP",
+    avatar: "https://i.pravatar.cc/150?img=44",
+    availability: ["Terça", "Quinta"],
+    createdAt: "2023-07-15",
+  },
+  {
+    id: "prof-3",
+    name: "Enf. Paula Rodrigues",
+    email: "paula.rodrigues@vidaplus.com",
+    role: "professional",
+    cpf: "333.444.555-66",
+    phone: "(11) 99999-3333",
+    license: "COREN 54321-SP",
+    avatar: "https://i.pravatar.cc/150?img=9",
+    availability: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
+    createdAt: "2023-08-20",
+  },
+];
