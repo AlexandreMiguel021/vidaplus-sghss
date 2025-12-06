@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/useAuth";
 import { useAppointmentStore } from "@/stores/appointmentStore";
 import { ArrowLeft, ArrowRight, Check, Video, MapPin } from "lucide-react";
+import { ROUTES } from "@/app/routes";
 
 export function AppointmentsPage() {
   const navigate = useNavigate();
@@ -81,7 +82,7 @@ export function AppointmentsPage() {
         time: selectedTime,
         type: appointmentType,
       });
-      navigate("/patient/dashboard");
+      navigate(ROUTES.PATIENT_DASHBOARD);
     } catch (error) {
       console.error("Erro ao agendar:", error);
     }

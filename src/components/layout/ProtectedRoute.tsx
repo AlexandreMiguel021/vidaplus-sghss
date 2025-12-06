@@ -1,7 +1,8 @@
-import { Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from '@/hooks/useAuth';
-import { useEffect } from 'react';
-import { useAuthStore } from '@/stores/authStore';
+import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
+import { useEffect } from "react";
+import { useAuthStore } from "@/stores/authStore";
+import { ROUTES, DASHBOARD_ROUTES } from "@/app/routes";
 
 interface ProtectedRouteProps {
   allowedRoles?: string[];
@@ -27,16 +28,16 @@ export function ProtectedRoute({ allowedRoles }: ProtectedRouteProps) {
   }
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to={ROUTES.LOGIN} replace />;
   }
 
   if (allowedRoles && user && !allowedRoles.includes(user.role)) {
-    const dashboardRoutes = {
-      patient: '/patient/dashboard',
-      professional: '/professional/dashboard',
-      admin: '/admin/dashboard',
-    };
-    return <Navigate to={dashboardRoutes[user.role as keyof typeof dashboardRoutes]} replace />;
+    return (
+      <Navigate
+        to={DASHBOARD_ROUTES[user.role as keyof typeof DASHBOARD_ROUTES]}
+        replace
+      />
+    );
   }
 
   return <Outlet />;

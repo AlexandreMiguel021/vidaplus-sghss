@@ -19,23 +19,24 @@ import { UsersPage } from "@/features/admin/pages/UsersPage";
 import { BedsPage } from "@/features/admin/pages/BedsPage";
 import { ReportsPage } from "@/features/admin/pages/ReportsPage";
 import { FinancialReportsPage } from "@/features/admin/pages/FinancialReportsPage";
+import { ROUTES } from "./routes";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: ROUTES.HOME,
     element: <HomePage />,
   },
   {
-    path: "/login",
+    path: ROUTES.LOGIN,
     element: <LoginPage />,
   },
   {
-    path: "/register",
+    path: ROUTES.REGISTER,
     element: <RegisterPage />,
   },
 
   {
-    path: "/patient",
+    path: ROUTES.PATIENT,
     element: <ProtectedRoute allowedRoles={["patient"]} />,
     children: [
       {
@@ -67,7 +68,7 @@ export const router = createBrowserRouter([
   },
 
   {
-    path: "/professional",
+    path: ROUTES.PROFESSIONAL,
     element: <ProtectedRoute allowedRoles={["professional"]} />,
     children: [
       {
@@ -99,7 +100,7 @@ export const router = createBrowserRouter([
   },
 
   {
-    path: "/admin",
+    path: ROUTES.ADMIN,
     element: <ProtectedRoute allowedRoles={["admin"]} />,
     children: [
       {
@@ -132,6 +133,6 @@ export const router = createBrowserRouter([
 
   {
     path: "*",
-    element: <Navigate to="/login" replace />,
+    element: <Navigate to={ROUTES.LOGIN} replace />,
   },
 ]);

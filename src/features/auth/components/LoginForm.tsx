@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { loginSchema } from "@/lib/validations";
 import type { LoginFormData } from "@/lib/validations";
 import { useAuthStore } from "@/stores/authStore";
+import { DASHBOARD_ROUTES, ROUTES } from "@/app/routes";
 
 export function LoginForm() {
   const navigate = useNavigate();
@@ -24,15 +25,9 @@ export function LoginForm() {
     try {
       await login(data);
 
-      const dashboardRoutes: Record<string, string> = {
-        patient: "/patient/dashboard",
-        professional: "/professional/dashboard",
-        admin: "/admin/dashboard",
-      };
-
       const user = useAuthStore.getState().user;
       if (user?.role) {
-        navigate(dashboardRoutes[user.role]);
+        navigate(DASHBOARD_ROUTES[user.role as keyof typeof DASHBOARD_ROUTES]);
       }
     } catch {
       // Error handled by store
@@ -80,7 +75,7 @@ export function LoginForm() {
       <div className="text-center text-sm text-granite-600">
         <button
           type="button"
-          onClick={() => navigate("/register")}
+          onClick={() => navigate(ROUTES.REGISTER)}
           className="text-jungle-teal-600 hover:underline"
         >
           Não tem conta? Cadastre-se

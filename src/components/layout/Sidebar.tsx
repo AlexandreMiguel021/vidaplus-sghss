@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
   Calendar,
@@ -11,9 +11,10 @@ import {
   ClipboardList,
   TestTube,
   DollarSign,
-} from 'lucide-react';
-import { useAuth } from '@/hooks/useAuth';
-import { cn } from '@/lib/utils';
+} from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { cn } from "@/lib/utils";
+import { ROUTES } from "@/app/routes";
 
 interface NavItem {
   label: string;
@@ -24,94 +25,94 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    label: 'Dashboard',
-    href: '/patient/dashboard',
+    label: "Dashboard",
+    href: ROUTES.PATIENT_DASHBOARD,
     icon: LayoutDashboard,
-    roles: ['patient'],
+    roles: ["patient"],
   },
   {
-    label: 'Agendar Consulta',
-    href: '/patient/appointments',
+    label: "Agendar Consulta",
+    href: ROUTES.PATIENT_APPOINTMENTS,
     icon: Calendar,
-    roles: ['patient'],
+    roles: ["patient"],
   },
   {
-    label: 'Histórico Clínico',
-    href: '/patient/history',
+    label: "Histórico Clínico",
+    href: ROUTES.PATIENT_HISTORY,
     icon: FileText,
-    roles: ['patient'],
+    roles: ["patient"],
   },
   {
-    label: 'Telemedicina',
-    href: '/patient/telemedicine',
+    label: "Telemedicina",
+    href: ROUTES.PATIENT_TELEMEDICINE,
     icon: Video,
-    roles: ['patient'],
+    roles: ["patient"],
   },
   {
-    label: 'Meus Exames',
-    href: '/patient/exams',
+    label: "Meus Exames",
+    href: ROUTES.PATIENT_EXAMS,
     icon: TestTube,
-    roles: ['patient'],
+    roles: ["patient"],
   },
   {
-    label: 'Dashboard',
-    href: '/professional/dashboard',
+    label: "Dashboard",
+    href: ROUTES.PROFESSIONAL_DASHBOARD,
     icon: LayoutDashboard,
-    roles: ['professional'],
+    roles: ["professional"],
   },
   {
-    label: 'Minha Agenda',
-    href: '/professional/schedule',
+    label: "Minha Agenda",
+    href: ROUTES.PROFESSIONAL_SCHEDULE,
     icon: Calendar,
-    roles: ['professional'],
+    roles: ["professional"],
   },
   {
-    label: 'Prontuários',
-    href: '/professional/records',
+    label: "Prontuários",
+    href: ROUTES.PROFESSIONAL_RECORDS,
     icon: ClipboardList,
-    roles: ['professional'],
+    roles: ["professional"],
   },
   {
-    label: 'Emitir Receita',
-    href: '/professional/prescriptions',
+    label: "Emitir Receita",
+    href: ROUTES.PROFESSIONAL_PRESCRIPTIONS,
     icon: Stethoscope,
-    roles: ['professional'],
+    roles: ["professional"],
   },
   {
-    label: 'Gestão de Exames',
-    href: '/professional/exams',
+    label: "Gestão de Exames",
+    href: ROUTES.PROFESSIONAL_EXAMS,
     icon: TestTube,
-    roles: ['professional'],
+    roles: ["professional"],
   },
   {
-    label: 'Dashboard',
-    href: '/admin/dashboard',
+    label: "Dashboard",
+    href: ROUTES.ADMIN_DASHBOARD,
     icon: LayoutDashboard,
-    roles: ['admin'],
+    roles: ["admin"],
   },
   {
-    label: 'Gestão de Usuários',
-    href: '/admin/users',
+    label: "Gestão de Usuários",
+    href: ROUTES.ADMIN_USERS,
     icon: Users,
-    roles: ['admin'],
+    roles: ["admin"],
   },
   {
-    label: 'Controle de Leitos',
-    href: '/admin/beds',
+    label: "Controle de Leitos",
+    href: ROUTES.ADMIN_BEDS,
     icon: Bed,
-    roles: ['admin'],
+    roles: ["admin"],
   },
   {
-    label: 'Relatórios',
-    href: '/admin/reports',
+    label: "Relatórios",
+    href: ROUTES.ADMIN_REPORTS,
     icon: BarChart3,
-    roles: ['admin'],
+    roles: ["admin"],
   },
   {
-    label: 'Financeiro',
-    href: '/admin/financial',
+    label: "Financeiro",
+    href: ROUTES.ADMIN_FINANCIAL,
     icon: DollarSign,
-    roles: ['admin'],
+    roles: ["admin"],
   },
 ];
 
@@ -119,7 +120,7 @@ export function Sidebar() {
   const { user } = useAuth();
 
   const filteredNavItems = navItems.filter((item) =>
-    item.roles.includes(user?.role || '')
+    item.roles.includes(user?.role || "")
   );
 
   return (
@@ -133,9 +134,10 @@ export function Sidebar() {
               to={item.href}
               className={({ isActive }) =>
                 cn(
-                  'flex items-center gap-3 px-4 py-3 rounded-lg transition-colors',
-                  'text-granite-700 hover:bg-jungle-teal-50 hover:text-jungle-teal-700',
-                  isActive && 'bg-jungle-teal-100 text-jungle-teal-700 font-medium'
+                  "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors",
+                  "text-granite-700 hover:bg-jungle-teal-50 hover:text-jungle-teal-700",
+                  isActive &&
+                    "bg-jungle-teal-100 text-jungle-teal-700 font-medium"
                 )
               }
             >
